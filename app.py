@@ -7,9 +7,10 @@ from chalice import Chalice
 app = Chalice(app_name='webscraper-project')
 BUCKET_NAME = 'arc-webscraper-project'
 
-@app.route('/')
-def index():
-    return {'hello': 'world'}
+# Crypto is the currency to return data for
+@app.route('/{crypto}')
+def index(crypto):
+
 
 
 # The view function above will return {"hello": "world"}
@@ -72,7 +73,7 @@ def log_error(e):
 
 
 def get_items():
-    url = 'http://www.akc.org/dog-breeds/'
+    url = 'https://masternodes.online/'
     response = simple_get(url)
     # If there is a response, parse the html, and for each <option> element, add it's content to an array
     if response is not None:
